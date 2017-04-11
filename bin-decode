@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+def to_chr(data):
+    try:
+        return chr(int(data, 2))
+    except ValueError:
+        return ' %s ' % data
+
+def decode(data):
+    return ''.join([to_chr(d) for d in data.split()])
+
+if __name__ == '__main__':
+    import sys
+    for line in sys.stdin:
+        print decode(line.strip())
